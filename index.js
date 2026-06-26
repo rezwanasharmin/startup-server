@@ -19,10 +19,7 @@ connectDB().then(() => {
 });
 
 // Middlewares
-app.use(cors({
-  origin: 'http://localhost:3000', // Next.js Client
-  credentials: true,
-}));
+app.use(cors));
 
 // Use express.raw for Stripe webhook, otherwise express.json
 app.use((req, res, next) => {
