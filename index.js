@@ -19,7 +19,7 @@ connectDB().then(() => {
 });
 
 // Middlewares
-app.use(cors));
+app.use(cors());
 
 // Use express.raw for Stripe webhook, otherwise express.json
 app.use((req, res, next) => {
