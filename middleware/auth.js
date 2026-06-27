@@ -20,7 +20,11 @@ const verifyToken = async (req, res, next) => {
 
     if (user.isBlocked) {
       // Clear cookie if user is blocked
-      res.clearCookie('token');
+      res.clearCookie('token', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      });
       return res.status(403).json({ message: 'Your account has been blocked by the admin' });
     }
 
