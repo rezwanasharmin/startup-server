@@ -1,3 +1,8 @@
+/**
+ * Authentication & Authorization Middleware
+ * Verifies JWT session tokens stored in HttpOnly cookies, checks for user blocks,
+ * and restricts route access to specific roles.
+ */
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
