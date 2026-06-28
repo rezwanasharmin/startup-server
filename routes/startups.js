@@ -1,3 +1,8 @@
+/**
+ * Startup Profiles Routes Configuration
+ * Handles startup profile creation, updates, deletes, and approval/rejection operations
+ * managed by platform administrators.
+ */
 const express = require('express');
 const router = express.Router();
 const Startup = require('../models/Startup');
