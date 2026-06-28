@@ -1,3 +1,8 @@
+/**
+ * Opportunity / Job Posting Routes Configuration
+ * Handles recruiter opportunity creation (with premium limits verification), updates,
+ * deletes, search (by regex), and filter (by type and industry).
+ */
 const express = require('express');
 const router = express.Router();
 const Opportunity = require('../models/Opportunity');
