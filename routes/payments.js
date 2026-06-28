@@ -1,3 +1,8 @@
+/**
+ * Stripe Payment & Upgrade Routes Configuration
+ * Configures Stripe checkout sessions for premium founder upgrades, validates payment success
+ * by checking Stripe checkout session IDs, and processes Stripe Webhooks.
+ */
 const express = require('express');
 const router = express.Router();
 const Payment = require('../models/Payment');
