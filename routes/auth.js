@@ -1,3 +1,8 @@
+/**
+ * Authentication Routes Configuration
+ * Handles email/password registration, credentials login, mock/real Google OAuth session login,
+ * session validation, and logout.
+ */
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
