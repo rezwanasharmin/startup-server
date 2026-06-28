@@ -15,10 +15,12 @@ const stripe = require('stripe')(stripeKey);
 // @access  Private
 router.post('/create-checkout-session', verifyToken, async (req, res) => {
   try {
+    const clientOrigin = req.headers.origin || 'http://localhost:3000';
+
     // If Stripe key is missing or default mock, return mock checkout URL
     if (process.env.STRIPE_SECRET_KEY === 'sk_test_mockkey' || stripeKey.includes('MockKey')) {
       return res.json({
-        url: `http://localhost:3000/payment-success?session_id=mock_session_${Date.now()}`,
+        url: `${clientOrigin}/payment-success?session_id=mock_session_${Date.now()}`,
         isMock: true,
       });
     }
@@ -39,8 +41,8 @@ router.post('/create-checkout-session', verifyToken, async (req, res) => {
         },
       ],
       mode: 'payment',
-      success_url: `http://localhost:3000/payment-success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `http://localhost:3000/dashboard`,
+      success_url: `${clientOrigin}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${clientOrigin}/dashboard`,
       metadata: {
         user_email: req.user.email,
       },
