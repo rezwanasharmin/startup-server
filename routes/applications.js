@@ -1,3 +1,8 @@
+/**
+ * Collaborator Application Routes Configuration
+ * Handles candidate applications submissions, retrieval of application lists (both personal
+ * and incoming founder lists), and application status updates (acceptance/rejection).
+ */
 const express = require('express');
 const router = express.Router();
 const Application = require('../models/Application');
