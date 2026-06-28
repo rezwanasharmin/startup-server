@@ -1,3 +1,8 @@
+/**
+ * StartupForge Backend Server Entrypoint
+ * Configures express middleware, connects to MongoDB, seeds default admin,
+ * and sets up API router controllers.
+ */
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
